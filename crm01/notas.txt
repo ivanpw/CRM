@@ -1,0 +1,38 @@
+		foreach ($user as $user) {
+		Mail::send('mail',[],function($message) use ($user){
+		$message->from('roucher133@gmail.com','unga');
+		$message->to($user->correo, $user->nombre)->subject('meh');	
+		});
+	}
+	return "se ha enviado mail";
+}
+}
+
+
+
+$nuevo=new proyecto_recurso();
+        $nuevo->recurso_id=$datos->input('recurso_id');
+        $nuevo->proyecto_id=$id;
+        $nuevo->descripcion=$datos->input('descripcion');
+        $nuevo->correo=$datos->input('correo');
+        $nuevo->nombre=$datos->input('nombre');
+        $nuevo->save();
+
+     public function guardarAsignacion($id, Request $datos){
+         $proyecto=Proyecto::find($id);
+        $lista=DB::table('proyectos_recursos')
+        ->join('proyectos','proyectos.id','proyectos.descripcion','proyectos.sexo','proyectos.uso','=','proyectos_recursos.proyecto_id','proyectos_recursos.descripcion','proyectos_recursos.sexo','proyectos_recursos.uso')
+        ->where('proyectos_recursos.proyecto_id','=',$id)
+      
+     }
+
+        $user =DB::table('recursos')
+        $users=new proyecto_recurso();
+        if ($user->sexo == $proms->sexo){
+        $users=new proyecto_recurso();    
+        $users->recurso_id=$datos->input('recurso_id');
+        $users->proyecto_id=$id;
+        $users->descripcion = $id->descripcion;
+        $users->correo = $user->correo;
+        $users->nombre = $user->nombre;
+        $nuevo->save();
